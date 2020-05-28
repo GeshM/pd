@@ -7,7 +7,7 @@ class actionWallsIndex extends cmsAction {
         $template = cmsTemplate::getInstance();
 
         $total = $this->model->getEntriesCount();
-        $walls = $this->model->getEntries();
+        $walls = $this->model->joinUser()->getEntries(); // user_nickname, user_avatar будут прикреплены к записям
 
         
         $template->render('index', array(
